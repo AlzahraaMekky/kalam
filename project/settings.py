@@ -84,7 +84,7 @@ database_url = os.environ.get("DATABASE_URL")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 if not DEBUG:
     DATABASES = {
-    'default': dj_database_url.parse(
+    'default': dj_database_url.config(
         'database_url',
         conn_max_age=600,
         conn_health_checks=True,
