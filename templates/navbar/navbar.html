@@ -1,0 +1,45 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'img/logo.png'%}" alt="Bootstrap" width="60" height="60">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'sessions' %}">الجلسات</a>
+        </li>
+      
+      </ul>
+      <ul class="d-flex navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signUpCoffeeOwner' %}">تسجيل كصاحب مقهى</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signUpUser' %}">تسجيل مستخدم</a>
+        </li>
+                {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{request.user.username}}
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'checkprofile'%}">الملف الشخصي</a>
+            <a class="dropdown-item" href="{%url 'logout'%}">خروج</a>
+          </div>
+        </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link"  href="{%url 'login'%}">دخول</a>
+      </li>
+      {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

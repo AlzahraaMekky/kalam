@@ -1,0 +1,38 @@
+/* b288e4 */
+/* 5f86dc */
+@font-face {
+    font-family: 'TajawalBold';
+    src: local('TajawalBold'),
+         url('fonts/Tajawal-Bold.ttf') format("truetype");
+  }
+
+  body {
+    font-family:"TajawalBold";
+    
+  }
+  .input-group-text {color: #5f86dc;}
+.card p,.card h5{color: rgba(0, 0, 0, 0.6) !important;}
+.color{color: #5f86dc;}
+.bgcolor{background-color: #5f86dc;}
+.register{color: #fff;border: none;}
+.register:hover{background-color: #b288e4;color: #fff;}
+.cbg{
+    background-image:url("/static/img/coffeebg.jpg");
+    background-position: 50% -70.1095px;
+    position: relative;
+    min-height: 300px;
+    line-height: 300px;
+}
+.cbg .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: .5;
+}
+.progress-bar{  background-color: #5f86dc !important;}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show,.nav-link:focus, .nav-link:hover{
+  color: #5f86dc;
+}

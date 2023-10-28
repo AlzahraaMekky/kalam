@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="cbg">
+    <div class="overlay">
+        <div class="row">
+            <div class="col">
+                <div class="text">
+                    <p class="lead fw-bold  text-white text-center ">استمتع واستفيد</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h6 class="color">الجلسات الحوارية</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Intro Single-->
+
+  <!-- ======= Property Grid ======= -->
+  <section class="property-grid grid mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="grid-option">
+            <form method="post"  action="{% url 'sessions' %}">
+                {% csrf_token %}
+              <select class="custom-select" name="sessiontype">
+                <option  value="0" selected>الكل</option>
+                <option value="1">الرياضة</option>
+                <option value="2">الثقافة</option>
+                <option value="3">السياسة</option>
+              </select>
+        
+              <button type="submit" class="bgcolor register">بحث</button> 
+            </form>
+          </div>
+        </div>
+        {%for session  in sessions %}
+        <div class="col-lg-4 col-md-3 col-sm-2">
+            <div class="card">
+                <img src="{{session.coffeeimg}}" class="card-img-top" alt="coffee">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <span><i class="fas fa-mug-hot"></i></span>
+                    <span class="px-1">
+                        اسم الجلسة
+                    </span>
+                    <span class="px-2"> {{session.sessionName}}</span>
+                   
+                </h5>
+                  <p class="card-text border-bottom">
+                    <span><i class="far fa-sticky-note"></i></span>
+                    <span class="px-1">وصف الجلسة</span>
+                    <span class="px-2"> {{session.sessionDescription}}</span>
+                   
+                </p>
+                <p class="card-text border-bottom">
+                    <span><i class="fas fa-list"></i></span>
+                    <span class="px-1">نوع الجلسة</span>
+                    <span class="px-2"> {{session.sessionType}}</span>
+                   
+                </p>
+                <p class="card-text border-bottom">
+                    <span><i class="fas fa-file-signature"></i></span>
+                    <span class="px-1">اسم المقهى</span>
+                    <span class="px-2"> {{session.coffeeName}}</span>
+                   
+                </p>
+                <p class="card-text border-bottom">
+                    <span><i class="fas fa-map-marker-alt"></i></span>
+                    <span class="px-1">عنوان المقهى</span>
+                    <span class="px-2">{{session.coffeeaddress}}</span>
+                   
+                </p>
+                <p class="card-text border-bottom">
+                    <span><i class="fas fa-mobile-alt"></i></span>
+                    <span class="px-1">هاتف المقهى</span>
+                    <span class="px-2">{{session.phone_no}}</span>
+                   
+                </p>
+                <p class="card-text border-bottom">
+                    <span><i class="fas fa-calendar-alt"></i></span>
+                    <span class="px-1">تاريخ الجلسة</span>
+                    <span class="px-2">{{session.sessiondatetime}}</span>
+                   
+                </p>
+                 
+                  <a href="#" class="btn bgcolor register w-100  d-block ">حجز الجلسة</a>
+                </div>
+              </div>
+        </div>
+        {%endfor%}
+      </div>
+<div class="row">
+    {% if messages %}
+    {% for message in messages %}
+            <div class="mt-3 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}   
+</div>
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="messageModalLabel">Send Message to Landloard</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method = "post"  action=""  enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="hidden" class="roomid" name="roomID">
+            <div class="input-group mb-3">
+              <span class="input-group-text">message</span>
+              <textarea class="form-control" aria-label="With textarea"  name="message"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn" value="Save Room" style="background-color: #1f2562;border: none;color:#fff">
+      </div>
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+            <div class="py-5 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %} 
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="rateModalLabel">Rate Room</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method = "post"  action=""  enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="hidden" class="roomid4rate" name="roomID4rate">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" >
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn" value="Save Rate" style="background-color: #1f2562;border: none;color:#fff">
+      </div>
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+            <div class="py-5 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %} 
+    </div>
+  </div>
+</div>
+    </div>
+  </section><!-- End Property Grid Single-->
+  {% endblock %}

@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="{{userphoto}}" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{userfullName}}</h5>
+              <p class="text-muted mb-1">
+                <i class="fas fa-mobile-alt"></i>
+                <span class="px-1">{{userphone_no}}</span>
+            </p>
+              <p class="text-muted mb-4"><i class="far fa-user"></i>
+                <span class="px-1">{{userusername}}</span>
+            </p>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn bgcolor register ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal">إضاف جلسة حوارية</button>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0">https://mdbootstrap.com</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                  <p class="mb-0">@mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="mb-0">اسم المقهي</p>
+                            </div>
+                            <div class="col-sm-9">
+                              <p class="text-muted mb-0">{{coffeeName}}</p>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="mb-0">الوصف</p>
+                            </div>
+                            <div class="col-sm-9">
+                              <p class="text-muted mb-0">{{coffeeDes}}</p>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="mb-0">العنوان</p>
+                            </div>
+                            <div class="col-sm-9">
+                              <p class="text-muted mb-0">{{coffeeaddresss}}</p>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="coffeeimage text-center">
+                        <img src="{{coffeeimg}}" alt="coffeeimg">
+                        <p class="mb-4"><span class="color font-italic me-2">صورة</span>المقهي
+                        </p>
+                    </div>
+                </div>
+            </div>
+          
+          <div class="row">
+            {%for session in Coffeesession %}
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"><span class="color font-italic me-2">معلومات</span>الجلسة
+                  </p>
+                  <p class="mb-1" style="font-size: .77rem;">{{session.name}}</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">{{session.description}}</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  {%if session.type == "1"%}
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">رياضة</p>
+                  {%endif%}
+                  {%if session.type == "2"%}
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">ثقافة</p>
+                  {%endif%}
+                  {%if session.type == "3"%}
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">سياسة</p>
+                  {%endif%}
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">{{session.datetime}}</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">إضافة جلسة حوارية</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                  <form method = "post"  action="{%url 'addcoffeesession'%}">
+                    {% csrf_token %}
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="اسم الجلسة" name="sessionName">
+                            <span class="input-group-text" ><i class="fas fa-mug-hot"></i></span>
+                          </div>
+                       
+                          <div class="input-group mb-3">
+                            <input type="textarea" class="form-control" placeholder="وصف الجلسة" name="sessionDescripion">
+                            <span class="input-group-text" ><i class="far fa-sticky-note"></i></span>
+                          </div>
+                    
+                          <div class="input-group mb-3">
+                            <select class="form-select" id="inputGroupSelect02" name="sessionType">
+                              <option selected>...نوع الجلسة</option>
+                              <option value="1">رياضة</option>
+                              <option value="2">ثقافة</option>
+                              <option value="3">سياسة</option>
+                            </select>
+                            <label class="input-group-text" for="inputGroupSelect02"><i class="fas fa-list"></i></label>
+                          </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                                <div class="py-2 my-2 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %} 
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn bgcolor register d-block  w-100 ">حفظ الجلسة</button>
+            </div>
+        </form>
+
+        </div>
+      
+      </div>
+    </div>
+  </div>
+    </div>
+  </section>
+{% endblock %}

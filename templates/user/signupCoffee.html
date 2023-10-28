@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="cbg">
+    <div class="overlay">
+        <div class="row">
+            <div class="col">
+                <div class="text">
+                    <p class="lead fw-bold  text-white text-center ">التسجيل كصاحب مقهي</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sinupcoffee py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <h5 class="text-center mb-5 color">بيانات صاحب المقهي</h5>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-8">
+              <form method = "post"  action="{%url 'signUpCoffeeOwner'%}"  enctype="multipart/form-data">
+                {% csrf_token %}
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="الأسم باكامل" name="name">
+                        <span class="input-group-text" ><i class="fas fa-signature"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="أسم امستخدم" name="username">
+                        <span class="input-group-text" ><i class="far fa-user"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="كلمةالمرور" name="password1">
+                        <span class="input-group-text" ><i class="fas fa-unlock-alt"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" name="password2">
+                        <span class="input-group-text" ><i class="fas fa-unlock-alt"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="رقم الهاتف" name="phone">
+                        <span class="input-group-text" ><i class="fas fa-mobile-alt"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="file"    required accept="image/*" class="form-control" id="profimg" name="pimg">
+                        <label class="input-group-text" for="profimg"><i class="far fa-images"></i></label>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="اسم المقهى" name="CoffeeName">
+                        <span class="input-group-text" ><i class="fas fa-mug-hot"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="عنوان المقهى" name="CoffeeAdress">
+                        <span class="input-group-text" ><i class="fas fa-map-marker-alt"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="textarea" class="form-control" placeholder="وصف المقهى" name="CoffeeDescripion">
+                        <span class="input-group-text" ><i class="far fa-sticky-note"></i></span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="file"   required accept="image/*" class="form-control"  name="CoffeeImage" id="cimg">
+                        <label class="input-group-text"for="cimg"><i class="far fa-images"></i></label>
+                      </div>
+                      <div class="saveBtn">
+                        <button type="submit" class="btn bgcolor register d-block w-100 ">
+                            حفظ البيانات
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                     </div>
+                  </form>
+                {% if messages %}
+                    {% for message in messages %}
+                            <div class="py-2 my-2 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+            

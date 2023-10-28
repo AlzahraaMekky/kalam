@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include 'slider/slider.html'%}
+<div class="sesions py-5">
+    <div class="container">
+        <div class="row">
+            {%for session  in sessions %}
+            <div class="col-lg-4 col-md-3 col-sm-2">
+                <div class="card">
+                    <img src="{{session.coffeeimg}}" class="card-img-top" alt="coffee">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <span><i class="fas fa-mug-hot"></i></span>
+                        <span class="px-1">
+                            اسم الجلسة
+                        </span>
+                        <span class="px-2"> {{session.sessionName}}</span>
+                       
+                    </h5>
+                      <p class="card-text border-bottom">
+                        <span><i class="far fa-sticky-note"></i></span>
+                        <span class="px-1">وصف الجلسة</span>
+                        <span class="px-2"> {{session.sessionDescription}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="fas fa-list"></i></span>
+                        <span class="px-1">نوع الجلسة</span>
+                        <span class="px-2"> {{session.sessionType}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="fas fa-file-signature"></i></span>
+                        <span class="px-1">اسم المقهى</span>
+                        <span class="px-2"> {{session.coffeeName}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="px-1">عنوان المقهى</span>
+                        <span class="px-2">{{session.coffeeaddress}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="fas fa-mobile-alt"></i></span>
+                        <span class="px-1">هاتف المقهى</span>
+                        <span class="px-2">{{session.phone_no}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="fas fa-calendar-alt"></i></span>
+                        <span class="px-1">تاريخ الجلسة</span>
+                        <span class="px-2">{{session.sessiondatetime}}</span>
+                       
+                    </p>
+                     <form method="post" action="{% url 'book' %}">
+                        {% csrf_token %}
+                        <input value="{{session.sid}}" type="hidden" name="sessionID">
+                        <button  class="btn bgcolor register w-100 d-block" type="submit">حجز الجلسة</button>
+                     </form>
+                    </div>
+                  </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+            
