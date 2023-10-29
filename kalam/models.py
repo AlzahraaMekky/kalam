@@ -41,6 +41,8 @@ class CoffeeSesion(models.Model):
   description = models.TextField()
   type = models.CharField(max_length=9,choices=SESSIN_CHOICES)
   datetime = models.DateTimeField(auto_now_add=True)
+  img = models.ImageField(upload_to='coffee/')
+  price= models.IntegerField()
   user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
   
   def __str__(self):

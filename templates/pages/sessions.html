@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="cbg">
+<div class="cbg bgcolor">
     <div class="overlay">
         <div class="row">
             <div class="col">
@@ -24,7 +24,7 @@
   </section><!-- End Intro Single-->
 
   <!-- ======= Property Grid ======= -->
-  <section class="property-grid grid mb-4">
+  <section class="property-grid grid mb-4 bgcolor">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -43,9 +43,9 @@
           </div>
         </div>
         {%for session  in sessions %}
-        <div class="col-lg-4 col-md-3 col-sm-2">
-            <div class="card">
-                <img src="{{session.coffeeimg}}" class="card-img-top" alt="coffee">
+        <div class="col-lg-4 col-md-3 col-sm-2 d-flex align-items-stretch">
+            <div class="card" style="width: 25rem;">
+                <img src="{{session.coffeeimg}}" class="card-img-top img-fluid" alt="coffee">
                 <div class="card-body">
                   <h5 class="card-title">
                     <span><i class="fas fa-mug-hot"></i></span>
