@@ -19,7 +19,7 @@ def Home(request):
         sessiondatetime =sess.datetime
         sessionUser =sess.user
         sessionprice=sess.price
-        sessionimg=sess.img
+        # sessionimg=sess.img
         fetchuser = CustomUser.objects.get(username=sessionUser)
         phone_no =fetchuser.phone_no
         if sessionType =="1" :type="رياضة"
