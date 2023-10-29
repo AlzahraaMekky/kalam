@@ -7,7 +7,7 @@
             {%for session  in sessions %}
             <div class="col-lg-4 col-md-3 col-sm-2 d-flex align-items-stretch">
                 <div class="card" style="width: 25rem;">
-                    <img src="{{session.coffeeimg}}" class="card-img-top img-fluid " alt="coffee">
+                    <img src="{{session.sessionimg}}" class="card-img-top img-fluid " alt="coffee">
                     <div class="card-body">
                       <h5 class="card-title">
                         <span><i class="fas fa-mug-hot"></i></span>
@@ -27,6 +27,12 @@
                         <span><i class="fas fa-list"></i></span>
                         <span class="px-1">نوع الجلسة</span>
                         <span class="px-2"> {{session.sessionType}}</span>
+                       
+                    </p>
+                    <p class="card-text border-bottom">
+                        <span><i class="far fa-money-bill-alt"></i></span>
+                        <span class="px-1">سعر الجلسة</span>
+                        <span class="px-2"> {{session.sessionprice}}</span>
                        
                     </p>
                     <p class="card-text border-bottom">

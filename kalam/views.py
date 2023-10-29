@@ -18,6 +18,8 @@ def Home(request):
         sessionType =sess.type
         sessiondatetime =sess.datetime
         sessionUser =sess.user
+        sessionprice=sess.price
+        sessionimg=sess.img
         fetchuser = CustomUser.objects.get(username=sessionUser)
         phone_no =fetchuser.phone_no
         if sessionType =="1" :type="رياضة"
@@ -28,8 +30,8 @@ def Home(request):
             coffeeName=coffee.name
             coffeeaddress=coffee.address
             coffeeimg=coffee.img
-            sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessionDescription,
-                                   'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
+            sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessionDescription,"sessionimg":sessionimg,
+                              "sessionprice":sessionprice , 'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
                                   'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no})
     return render(request,"pages/index.html",context={"sessions":sessions})
 
@@ -50,6 +52,8 @@ def sessionPage(request):
         sessionDescription=sess.description
         sessionType =sess.type
         sessiondatetime =sess.datetime
+        sessionprice=sess.price
+        sessionimg=sess.img
         sessionUser =sess.user
         fetchuser = CustomUser.objects.get(username=sessionUser)
         phone_no =fetchuser.phone_no
@@ -62,8 +66,8 @@ def sessionPage(request):
             coffeeaddress=coffee.address
             coffeeimg=coffee.img
             sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessionDescription,
-                                'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
-                                'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no})
+                                'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,"sessionimg":sessionimg,
+                                'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no,"sessionprice":sessionprice})
     return render(request,"pages/sessions.html",context={"sessions":sessions})
 
 
@@ -224,6 +228,8 @@ def UserPage(request):
             sessiondescription= fetchSesion.description
             sessionuser= fetchSesion.user
             sessiontype= fetchSesion.type
+            sessionprice= fetchSesion.price
+            sessionimg= fetchSesion.img
             sessiondatetime=fetchSesion.datetime
             if sessiontype =="1" : type="رياضة"
             if sessiontype =="2":  type="ثقافة"
@@ -234,7 +240,7 @@ def UserPage(request):
                 coffeeaddress=coffee.address
                 coffeeimg=coffee.img
                 sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessiondescription,
-                                    'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
+                                   "sessionprice":sessionprice,"sessionimg":sessionimg ,'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
                                     'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no})
           
     context={
@@ -263,9 +269,15 @@ def AddcoffeeSession(request):
                     sessionName = request.POST.get("sessionName")
                     sessionDescripion = request.POST.get("sessionDescripion")
                     sessionType = request.POST.get("sessionType")
+                    sessionPrice = request.POST.get("sessionPrice")
+                    if 'simg' in  request.FILES:
+                        photo =request.FILES['simg']
+                        pfss = FileSystemStorage()
+                        pfile = pfss.save(photo.name,photo)
+                        Pfile_url = pfss.url(pfile)
                     try:
                         session = CoffeeSesion(name=sessionName,
-                        description = sessionDescripion,type=sessionType,
+                        description = sessionDescripion,type=sessionType,img=Pfile_url,price =sessionPrice,
                         user=current_user)  
                         session.save()
                         print("save")

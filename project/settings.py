@@ -82,23 +82,23 @@ database_url = os.environ.get("DATABASE_URL")
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-# if not DEBUG:
-#     DATABASES = {
-#     'default': dj_database_url.config(
-#         default='database_url',
-#         conn_max_age=600,
-#         conn_health_checks=True,
-#     )
-# }
+if not DEBUG:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default='database_url',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+}
  
-# else:
-DATABASES = {
+else:
+    DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
                 'NAME': BASE_DIR / 'db.sqlite3',
             }
         }
-DATABASES['default'] = dj_database_url.parse("postgres://kalamdb_user:NfqrZFgvi3h7vWtyJZxFIzDgYpK0y4iX@dpg-ckuekq3amefc7380dpc0-a.oregon-postgres.render.com/kalamdb")
+# DATABASES['default'] = dj_database_url.parse("postgres://kalamdb_user:NfqrZFgvi3h7vWtyJZxFIzDgYpK0y4iX@dpg-ckuekq3amefc7380dpc0-a.oregon-postgres.render.com/kalamdb")
 
 
 # Password validation
