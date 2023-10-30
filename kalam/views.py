@@ -256,6 +256,7 @@ def UserPage(request):
 
 def AddcoffeeSession(request):
     current_user = request.user
+    Pfile_url = ''
     if request.method == "POST":
         current_userId = current_user.id
         if current_user is not None:
