@@ -33,6 +33,8 @@ urlpatterns = [
     path('logout/', views.Logout, name='logout'),
     path('deleteBook/', views.deleteBookingSession, name='deleteBook'),
     path('deletesession/<int:id>', views.deleteSession, name='deletesession'),
+    path('addTestimonial/', views.addTestimonial, name='addtestimonial') ,
+
 
     
 

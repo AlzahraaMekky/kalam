@@ -10,8 +10,10 @@ from django.contrib.auth.decorators import login_required
 
 def Home(request):
     sessions =[]
+    testimonialsList=[]
     type=""
     csesions= CoffeeSesion.objects.all()[:4]
+    testimonials=Testimonial.objects.all()
     for sess in csesions:
         sessionName=sess.name
         sessionDescription=sess.description
@@ -33,7 +35,15 @@ def Home(request):
             sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessionDescription,"sessionimg":sessionimg,
                               "sessionprice":sessionprice , 'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,
                                   'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no})
-    return render(request,"pages/index.html",context={"sessions":sessions})
+    for testimonial in testimonials:
+        user=  testimonial.user
+        print("testimonial user",user,testimonial.message)
+        fetchUser =CustomUser.objects.filter(username=user)
+        for fuser in fetchUser:
+            testimonialsList.append({"name":fuser.Full_name,"img":fuser.Photo,"message":testimonial.message})
+    first_item_list = [testimonialsList[0]]
+    testimonialsList.pop(0)
+    return render(request,"pages/index.html",context={"sessions":sessions,'testimonials':testimonialsList,"first_item_list":first_item_list})
 
 def sessionPage(request):
     sessions =[]
@@ -357,3 +367,16 @@ def deleteSession (request,id):
         session=CoffeeSesion.objects.filter(pk=id,user=current_user)
         session.delete()
         return redirect('/coffee/')
+    
+@login_required(login_url='/login/') 
+def addTestimonial(request):
+    current_user = request.user
+    if current_user is not None:
+        if request.method == "POST":
+            message = request.POST.get("message")
+            fetchTestimonial = Testimonial.objects.filter(user=current_user).exists()
+            if fetchTestimonial == False:
+                    saveTestimonial = Testimonial(user=current_user,message=message)
+                    saveTestimonial.save()
+        else:messages.error(request, 'تم التقييم من قبل')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

@@ -1,0 +1,34 @@
+{% load static %}
+{% block body %}
+<div class="about text-center py-5 bgcolor">
+    <div class="container">
+        <div class="row">
+            <p class="underline mt-2 mb-4"><span>عــن كلـــم</span></p>
+
+            <div class="col-md-4">
+                <div class="aboutinfo mb-2">
+                    <img class="img-fluid" src="{% static 'img/info.png'%}">
+                    <h6 class="my-3">مــن نحــن</h6>
+                    <p>حلقة الوصل ما بين المقاهي والمهتمين في الجلسات الحوارية، لمناقشة المواضيع التي تثير اهتماماتهم. </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="aboutinfo mb-3">
+                    <img class="img-fluid" src="{% static 'img/aim.png'%}">
+                    <h6 class="my-3">رؤيتنــا</h6>
+                    <p>أنا تصبح (كَلِم) من رواد المسؤولية الاجتماعية في مجال الثقافة والحوار في المجتمع السعودي. </p>
+                
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="aboutinfo mb-2">
+                    <img class="img-fluid" src="{% static 'img/chat.png'%}">
+                    <h6 class="my-3">رسالتنــا </h6>
+                    <p>توفير بيئة داعمة لتبادل الحوار والتعبير عن الأفكار.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

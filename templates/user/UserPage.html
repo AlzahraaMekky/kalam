@@ -30,11 +30,16 @@
                           <div class="row">
                             <div class="col-sm-3">
                               <p class="mb-0">الأسم بالكامل</p>
+                              <div class="my-3">
+                                <button type="button" class="btn bgcolor register" data-bs-toggle="modal" data-bs-target="#exampleModal">إضاف تقييــم</button>
+                              </div>
                             </div>
                             <div class="col-sm-9">
                               <p class="text-muted mb-0">{{userfullName}}</p>
+                           
                             </div>
-                          </div>                    
+                          </div>  
+                                       
                           </div>
                         </div>
                       </div>
@@ -110,6 +115,44 @@
           </div>
           {%endfor%}
         </div>
+
+
+              <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">إضافة تقييم</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="row d-flex justify-content-center">
+              <div class="col-12">
+                <form method = "post" action="{%url 'addtestimonial' %}">
+                  {% csrf_token %}
+                        <div class="input-group mb-3">
+                          <textarea   class="form-control" placeholder="اكتب تقييــم" name="message"></textarea>
+
+                          <span class="input-group-text" ><i class="far fa-sticky-note"></i></span>
+                        </div>
+
+                  {% if messages %}
+                      {% for message in messages %}
+                              <div class="py-2 my-2 alert {% if message.tags %}alert-{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}" role="alert">{{ message }}</div>
+                      {% endfor %}
+                  {% endif %} 
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn bgcolor register d-block  w-100 ">حفظ التقييــم</button>
+          </div>
+      </form>
+
+      </div>
+    
+    </div>
+  </div>
+</div>
       </div>
 
     </div>

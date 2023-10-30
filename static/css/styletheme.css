@@ -129,7 +129,6 @@ a:hover {
 
 .color-text-a {
   text-decoration: none;
-  color: #555555;
 }
 
 .no-margin {
@@ -1056,7 +1055,7 @@ a:hover {
 
 .intro .intro-title {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 2.8rem;
   text-transform: uppercase;
 }
@@ -1075,7 +1074,7 @@ a:hover {
 
 @media (min-width: 992px) {
   .intro .intro-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 

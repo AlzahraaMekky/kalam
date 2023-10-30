@@ -57,3 +57,12 @@ class Booking(models.Model):
     message = models.TextField(null=True, blank=True)
     class Meta:
         ordering = ['-date']
+        
+class Testimonial(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    message = models.TextField(null=True, blank=True)
+    def __str__(self):
+      return self.message
+    class Meta:
+        ordering = ['-date']
