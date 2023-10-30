@@ -99,8 +99,7 @@ else:
             }
         }
 
-# DATABASES['default'] = dj_database_url.parse("postgres://kalamdbnew_user:j6getgLAariuX4ga8A1GylRmt2s7AVk2@dpg-ckv9dki37rbc73fm9efg-a.oregon-postgres.render.com/kalamdbnew")
-#DATABASES = {'default': dj_database_url.parse('postgres://kalam_y9hu_user:gzcKoLESy5kE5fF9NcJLzP1IzTeD6G4z@dpg-ckv9rjq37rbc73fp2qog-a.oregon-postgres.render.com/kalam_y9hu')}
+#DATABASES = {'default': dj_database_url.parse('postgres://saudikalamdb_user:rjvXHN6PqTLyzHmUe02v3zyXQJj4bqKW@dpg-ckvkak6b0mos73adlpjg-a.oregon-postgres.render.com/saudikalamdb')}
 
 
 # Password validation
