@@ -67,55 +67,54 @@
                     </div>
                 </div>
             </div>
-          
-          <div class="row">
-            {%for session in Coffeesession %}
-            <div class="col-md-6">
-              <div class="card" style="width: 25rem;">
-                <img src="{{session.img}}" class="card-img-top img-fluid" alt="coffee">
-                <div class="card-body">
-                  <p class="card-text border-bottom">
-                    <span><i class="fas fa-mug-hot"></i></span>
-                    <span class="px-1">
-                        اسم الجلسة
-                    </span>
-                    <span class="px-2"> {{session.name}}</span>
-                   
-                  </p>
-                  <p class="card-text border-bottom">
-                    <span><i class="far fa-sticky-note"></i></span>
-                    <span class="px-1">وصف الجلسة</span>
-                    <span class="px-2"> {{session.description}}</span>
-                   
+        </div>
+        <div class="row">
+          {%for session in Coffeesession %}
+          <div class="col-md-6">
+            <div class="card" style="width: 25rem;">
+              <img src="{{session.img}}" class="card-img-top img-fluid" alt="coffee">
+              <div class="card-body">
+                <p class="card-text border-bottom">
+                  <span><i class="fas fa-mug-hot"></i></span>
+                  <span class="px-1">
+                      اسم الجلسة
+                  </span>
+                  <span class="px-2"> {{session.name}}</span>
+                 
                 </p>
                 <p class="card-text border-bottom">
-                  <span><i class="far fa-money-bill-alt"></i></span>
-                  <span class="px-1">سعر الجلسة</span>
-                  <span class="px-2"> {{session.price}}</span>
+                  <span><i class="far fa-sticky-note"></i></span>
+                  <span class="px-1">وصف الجلسة</span>
+                  <span class="px-2"> {{session.description}}</span>
                  
               </p>
-                <p class="card-text border-bottom">
-                    <span><i class="fas fa-list"></i></span>
-                    <span class="px-1">نوع الجلسة</span>
-                    {%if session.type == "1" %}
-                    <span class="px-2"> رياضة</span>
-                    {%endif %}
-                    {%if session.type == "2" %}
-                    <span class="px-2"> ثقافة</span>
-                    {%endif %}
-                    {%if session.type == "3" %}
-                    <span class="px-2">سياسة</span>
-                    {%endif %}
-                   
-                </p>
-                
+              <p class="card-text border-bottom">
+                <span><i class="far fa-money-bill-alt"></i></span>
+                <span class="px-1">سعر الجلسة</span>
+                <span class="px-2"> {{session.price}}</span>
+               
+            </p>
+              <p class="card-text border-bottom">
+                  <span><i class="fas fa-list"></i></span>
+                  <span class="px-1">نوع الجلسة</span>
+                  {%if session.type == "1" %}
+                  <span class="px-2"> رياضة</span>
+                  {%endif %}
+                  {%if session.type == "2" %}
+                  <span class="px-2"> ثقافة</span>
+                  {%endif %}
+                  {%if session.type == "3" %}
+                  <span class="px-2">سياسة</span>
+                  {%endif %}
                  
-                  <a href="{%url 'deletesession' session.id %}" class="btn bgcolor register w-100  d-block ">حذف الجلسة</a>
-                </div>
+              </p>
+              
+               
+                <a href="{%url 'deletesession' session.id %}" class="btn bgcolor register w-100  d-block ">حذف الجلسة</a>
               </div>
             </div>
-            {% endfor %}
           </div>
+          {% endfor %}
         </div>
       </div>
       <!-- Modal -->
