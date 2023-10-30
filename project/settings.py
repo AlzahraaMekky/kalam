@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import dj_database_url
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,13 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(kqeq77b^*5pu)zw03=_kmwga30b_^s(3t)**zp2)zxqc1&jq!'
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG',"False").lower()=="true" 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
+ALLOWED_HOSTS = ["localhost","saudikalam.onrender.com","127.0.0.1:8000"]
+
+
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,12 +77,29 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+database_url = os.environ.get("DATABASE_URL")
+
+
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+if not DEBUG:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default='database_url',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
+ 
+else:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
+
+#DATABASES = {'default': dj_database_url.parse('postgres://saudikalamdb_user:rjvXHN6PqTLyzHmUe02v3zyXQJj4bqKW@dpg-ckvkak6b0mos73adlpjg-a.oregon-postgres.render.com/saudikalamdb')}
 
 
 # Password validation
@@ -117,11 +137,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static", 
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
