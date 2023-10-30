@@ -122,7 +122,7 @@
         <div class="modal-body">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
-                  <form method = "post"  action="{%url 'addcoffeesession'%}">
+                  <form method = "post"  action="{%url 'addcoffeesession'%}"  enctype="multipart/form-data">
                     {% csrf_token %}
                           <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="اسم الجلسة" name="sessionName">
@@ -144,8 +144,8 @@
                             <label class="input-group-text" for="inputGroupSelect02"><i class="fas fa-list"></i></label>
                           </div>
                           <div class="input-group mb-3">
-                            <input type="file"    required accept="image/*" class="form-control" id="profimg" name="simg">
-                            <label class="input-group-text" for="profimg"><i class="far fa-images"></i></label>
+                            <input type="file"    required accept="image/*" class="form-control" id="simg" name="simg">
+                            <label class="input-group-text" for="simg"><i class="far fa-images"></i></label>
                           </div>
                           <div class="input-group mb-3">
                             <input type="number" class="form-control" placeholder="سعر الجلسة" name="sessionPrice">

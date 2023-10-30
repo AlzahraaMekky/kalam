@@ -256,7 +256,7 @@ def UserPage(request):
 
 def AddcoffeeSession(request):
     current_user = request.user
-    Pfile_url = ''
+    Sfile_url = ''
     if request.method == "POST":
         current_userId = current_user.id
         if current_user is not None:
@@ -273,12 +273,13 @@ def AddcoffeeSession(request):
                     sessionPrice = request.POST.get("sessionPrice")
                     if 'simg' in  request.FILES:
                         photo =request.FILES['simg']
-                        pfss = FileSystemStorage()
-                        pfile = pfss.save(photo.name,photo)
-                        Pfile_url = pfss.url(pfile)
+                        sfss = FileSystemStorage()
+                        sfile = sfss.save(photo.name,photo)
+                        Sfile_url = sfss.url(sfile)
+                        print("Sfile_url",Sfile_url)
                     try:
                         session = CoffeeSesion(name=sessionName,
-                        description = sessionDescripion,type=sessionType,img=Pfile_url,price =sessionPrice,
+                        description = sessionDescripion,type=sessionType,img=Sfile_url,price =sessionPrice,
                         user=current_user)  
                         session.save()
                         print("save")
