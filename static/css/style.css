@@ -10,11 +10,11 @@
     font-family:"TajawalBold";
     
   }
-  .input-group-text {color: #5f86dc;}
+.input-group-text {color: #5f86dc;}
 .card p,.card h5{color: rgba(0, 0, 0, 0.6) !important;}
 .color{color: #5f86dc;}
 .bgcolor{background-color: #EDF2F8;}
-.register{color: #fff;border: none;}
+.register{color: #fff;border: none;background-color: #5f86dc;}
 .register:hover{background-color: #b288e4;color: #fff;}
 .cbg{
     background-image:url("/static/img/coffeebg.jpg");
@@ -22,6 +22,9 @@
     position: relative;
     min-height: 300px;
     line-height: 300px;
+}
+.navbar-toggler{
+  background-color: #5f86dc !important;
 }
 .cbg .overlay{
     position: absolute;
