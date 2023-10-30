@@ -345,3 +345,15 @@ def deleteBookingSession (request):
         session=Booking.objects.filter(session=sessionID,user=current_user)
         session.delete()
         return redirect('/user/')
+    
+
+@login_required(login_url='/login/') 
+def deleteSession (request,id):
+    current_user = request.user
+    if current_user is not None:
+        # if request.method == "POST":
+        #     sessionID=request.POST.get('sessionID')
+        print('deleteSession',id)
+        session=CoffeeSesion.objects.filter(pk=id,user=current_user)
+        session.delete()
+        return redirect('/coffee/')

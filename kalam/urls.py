@@ -32,6 +32,7 @@ urlpatterns = [
     path('checkprofile/', views.checkProfile, name='checkprofile'),
     path('logout/', views.Logout, name='logout'),
     path('deleteBook/', views.deleteBookingSession, name='deleteBook'),
+    path('deletesession/<int:id>', views.deleteSession, name='deletesession'),
 
     
 
