@@ -39,75 +39,76 @@
                         </div>
                       </div>
                 </div>
-                <div class="row">
-                  {%for session  in sessions %}
-                  <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
-                      <div class="card" style="width: 25rem;">
-                          <img src="{{session.sessionimg}}" class="card-img-top img-fluid " alt="coffee">
-                          <div class="card-body">
-                            <h5 class="card-title">
-                              <span><i class="fas fa-mug-hot"></i></span>
-                              <span class="px-1">
-                                  اسم الجلسة
-                              </span>
-                              <span class="px-2"> {{session.sessionName}}</span>
-                             
-                          </h5>
-                            <p class="card-text border-bottom">
-                              <span><i class="far fa-sticky-note"></i></span>
-                              <span class="px-1">وصف الجلسة</span>
-                              <span class="px-2"> {{session.sessionDescription}}</span>
-                             
-                          </p>
-                          <p class="card-text border-bottom">
-                            <span><i class="far fa-money-bill-alt"></i></span>
-                            <span class="px-1">سعر الجلسة</span>
-                            <span class="px-2"> {{session.sessionprice}}</span>
-                           
-                        </p>
-                          <p class="card-text border-bottom">
-                              <span><i class="fas fa-list"></i></span>
-                              <span class="px-1">نوع الجلسة</span>
-                              <span class="px-2"> {{session.sessionType}}</span>
-                             
-                          </p>
-                          <p class="card-text border-bottom">
-                              <span><i class="fas fa-file-signature"></i></span>
-                              <span class="px-1">اسم المقهى</span>
-                              <span class="px-2"> {{session.coffeeName}}</span>
-                             
-                          </p>
-                          <p class="card-text border-bottom">
-                              <span><i class="fas fa-map-marker-alt"></i></span>
-                              <span class="px-1">عنوان المقهى</span>
-                              <span class="px-2">{{session.coffeeaddress}}</span>
-                             
-                          </p>
-                          <p class="card-text border-bottom">
-                              <span><i class="fas fa-mobile-alt"></i></span>
-                              <span class="px-1">هاتف المقهى</span>
-                              <span class="px-2">{{session.phone_no}}</span>
-                             
-                          </p>
-                          <p class="card-text border-bottom">
-                              <span><i class="fas fa-calendar-alt"></i></span>
-                              <span class="px-1">تاريخ الجلسة</span>
-                              <span class="px-2">{{session.sessiondatetime}}</span>
-                             
-                          </p>
-                           <form method="post" action="{% url 'deleteBook' %}">
-                              {% csrf_token %}
-                              <input value="{{session.sid}}" type="hidden" name="sessionID">
-                              <button  class="btn bgcolor register w-100 d-block" type="submit">حذف الحجز</button>
-                           </form>
-                          </div>
-                        </div>
-                  </div>
-                  {%endfor%}
-                </div>
+              
             </div>
           
          
+        </div>
+        <div class="row">
+          {%for session  in sessions %}
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+              <div class="card" style="width: 25rem;">
+                  <img src="{{session.sessionimg}}" class="card-img-top img-fluid " alt="coffee">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <span><i class="fas fa-mug-hot"></i></span>
+                      <span class="px-1">
+                          اسم الجلسة
+                      </span>
+                      <span class="px-2"> {{session.sessionName}}</span>
+                     
+                  </h5>
+                    <p class="card-text border-bottom">
+                      <span><i class="far fa-sticky-note"></i></span>
+                      <span class="px-1">وصف الجلسة</span>
+                      <span class="px-2"> {{session.sessionDescription}}</span>
+                     
+                  </p>
+                  <p class="card-text border-bottom">
+                    <span><i class="far fa-money-bill-alt"></i></span>
+                    <span class="px-1">سعر الجلسة</span>
+                    <span class="px-2"> {{session.sessionprice}}</span>
+                   
+                </p>
+                  <p class="card-text border-bottom">
+                      <span><i class="fas fa-list"></i></span>
+                      <span class="px-1">نوع الجلسة</span>
+                      <span class="px-2"> {{session.sessionType}}</span>
+                     
+                  </p>
+                  <p class="card-text border-bottom">
+                      <span><i class="fas fa-file-signature"></i></span>
+                      <span class="px-1">اسم المقهى</span>
+                      <span class="px-2"> {{session.coffeeName}}</span>
+                     
+                  </p>
+                  <p class="card-text border-bottom">
+                      <span><i class="fas fa-map-marker-alt"></i></span>
+                      <span class="px-1">عنوان المقهى</span>
+                      <span class="px-2">{{session.coffeeaddress}}</span>
+                     
+                  </p>
+                  <p class="card-text border-bottom">
+                      <span><i class="fas fa-mobile-alt"></i></span>
+                      <span class="px-1">هاتف المقهى</span>
+                      <span class="px-2">{{session.phone_no}}</span>
+                     
+                  </p>
+                  <p class="card-text border-bottom">
+                      <span><i class="fas fa-calendar-alt"></i></span>
+                      <span class="px-1">تاريخ الجلسة</span>
+                      <span class="px-2">{{session.sessiondatetime}}</span>
+                     
+                  </p>
+                   <form method="post" action="{% url 'deleteBook' %}">
+                      {% csrf_token %}
+                      <input value="{{session.sid}}" type="hidden" name="sessionID">
+                      <button  class="btn bgcolor register w-100 d-block" type="submit">حذف الحجز</button>
+                   </form>
+                  </div>
+                </div>
+          </div>
+          {%endfor%}
         </div>
       </div>
 
