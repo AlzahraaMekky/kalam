@@ -99,7 +99,7 @@ else:
             }
         }
 
-#DATABASES = {'default': dj_database_url.parse('postgres://saudikalamdb_user:rjvXHN6PqTLyzHmUe02v3zyXQJj4bqKW@dpg-ckvkak6b0mos73adlpjg-a.oregon-postgres.render.com/saudikalamdb')}
+DATABASES = {'default': dj_database_url.parse('postgres://saudikalamdb_user:rjvXHN6PqTLyzHmUe02v3zyXQJj4bqKW@dpg-ckvkak6b0mos73adlpjg-a.oregon-postgres.render.com/saudikalamdb')}
 
 
 # Password validation
