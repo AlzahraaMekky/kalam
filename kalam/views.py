@@ -25,7 +25,7 @@ def Home(request):
         fetchuser = CustomUser.objects.get(username=sessionUser)
         phone_no =fetchuser.phone_no
         if sessionType =="1" :type="رياضة"
-        if sessionType =="2":type="ثقافة"
+        if sessionType =="2" or sessionType == "culture" :type="ثقافة"
         if sessionType =="3" :type="سياسة"
         fetchCoffee=Coffee.objects.filter(user=sessionUser)
         for coffee in  fetchCoffee:
@@ -47,7 +47,7 @@ def Home(request):
 
 def sessionPage(request):
     sessions =[]
-    type=""
+    stype=""
     if request.method == "POST":
         sessionType = request.POST.get("sessiontype")
         print("type",type)
@@ -67,17 +67,19 @@ def sessionPage(request):
         sessionUser =sess.user
         fetchuser = CustomUser.objects.get(username=sessionUser)
         phone_no =fetchuser.phone_no
-        if sessionType =="1" :type="رياضة"
-        if sessionType =="2":type="ثقافة"
-        if sessionType =="3" :type="سياسة"
+        if sessionType =="1" :stype="رياضة"
+        if sessionType =="2" or sessionType == "culture":stype="ثقافة"
+        if sessionType =="3" :stype="سياسة"
+        print("sessionType",sessionType)
         fetchCoffee=Coffee.objects.filter(user=sessionUser)
         for coffee in  fetchCoffee:
             coffeeName=coffee.name
             coffeeaddress=coffee.address
             coffeeimg=coffee.img
             sessions.append({'sid':sess.id,'sessionName':sessionName,'sessionDescription':sessionDescription,
-                                'sessionType':type,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,"sessionimg":sessionimg,
-                                'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no,"sessionprice":sessionprice})
+                                'sessionType':stype,'sessiondatetime':sessiondatetime,'coffeeName':coffeeName,"sessionimg":sessionimg,
+                                    'coffeeaddress':coffeeaddress,'coffeeimg':coffeeimg,"phone_no":phone_no,"sessionprice":sessionprice})
+       
     return render(request,"pages/sessions.html",context={"sessions":sessions})
 
 
