@@ -16,6 +16,143 @@
 .bgcolor{background-color: #EDF2F8;}
 .register{color: #fff;border: none;background-color: #5f86dc;}
 .register:hover{background-color: #b288e4;color: #fff;}
+.section-bg {
+  background-color: #5f86dc61;
+  padding: 50px 0;
+}
+
+
+.button-32 {
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #5f86dc61;
+
+}
+
+.button-32:hover,
+.button-32:focus {
+  outline: 0;
+  background: #b288e4;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+  color: #000 !important;
+}
+
+
+.button-52 {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px;
+  outline: 0;
+  border: 1px solid #000;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  color: #000;
+
+}
+
+.button-52:after {
+  content: "";
+  background-color: #b288e4;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
+}
+.button-52:hover,.button-52:focus{
+color: #000 !important;
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.header {
+  background-image: url("/static/img/coffee.jpg");
+  transition: all 0.5s;
+  z-index: 997;
+  height: 90px;
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 575px) {
+  .header {
+    height: 70px;
+  }
+}
+
+.header.sticked {
+  border-color: #fff;
+  border-color: #eee;
+}
+
+.header .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+
+.header .logo h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  font-family: var(--font-secondary);
+}
+
+.header .logo h1 span {
+  color: var(--color-primary);
+}
+
+.header .btn-book-a-table,
+.header .btn-book-a-table:focus {
+  font-size: 14px;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-book-a-table:hover,
+.header .btn-book-a-table:focus:hover {
+  color: #fff;
+  background: rgba(206, 18, 18, 0.8);
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
 .cbg{
     background-image:url("/static/img/coffeebg.jpg");
     background-position: 50% -70.1095px;
@@ -35,6 +172,27 @@
     background: #000;
     opacity: .5;
 }
+.sayAbout{
+  background-image: url("/static/img/bg.jpg");
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 400px;
+  padding: 30px 0;
+  z-index: 999;
+}
+.sayAbout .overlay{
+  position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #5f86dc61;
+    opacity: .8;
+    z-index: -1;
+
+}
 .progress-bar{background-color: #5f86dc !important;}
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,.nav-link:focus, .nav-link:hover{
   color: #5f86dc;
@@ -50,10 +208,69 @@
   min-height: 300px;
 } */
 .footer,.bgtst{
-  background-color: #5f86dc;
-  color: #FFF;
+  background-color: #5f86dc61;
+  color: #000;
 }
 .socials-a a,.list-inline-item a{
-  color: #fff ;
+  color: #000 ;
 }
 .browncolor{color: #5f86dc;}
+.nav-link{
+ color: #000;
+}
+.sayAbout .card .face.back-face {
+  background: #5f86dc61; 
+  padding: 20px 30px;
+  text-align: center;
+  user-select: none;
+}
+.sayAbout .underline::before{
+  position: static;
+}
+.bgrow{
+  background: #5f86dc61;
+ padding: 30px;
+ border-radius: 50px;
+
+}
+
+
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 35px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #b288e4;
+  color: #000;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 99999999999999;
+}
+
+.whats-app {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  left: 15px;
+  z-index: 99999999999999;
+}
+
+.my-float {
+  margin-top: 16px;
+}

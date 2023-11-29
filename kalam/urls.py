@@ -34,6 +34,7 @@ urlpatterns = [
     path('deleteBook/', views.deleteBookingSession, name='deleteBook'),
     path('deletesession/<int:id>', views.deleteSession, name='deletesession'),
     path('addTestimonial/', views.addTestimonial, name='addtestimonial') ,
+    path('about/', views.aboutPage, name='about') ,
 
 
     

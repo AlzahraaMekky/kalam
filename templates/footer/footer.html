@@ -8,6 +8,18 @@
               <a href="{% url 'home' %}">الرئيسية</a>
             </li>
             <li class="list-inline-item">
+              <a  href="#about">عــــن كلـــــم</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#why">لمـــاذا كلـــــم</a>
+            </li>
+            <li class="list-inline-item">
+              <a  href="#say">قــــالــوا عنـــــــا</a>
+            </li>
+            <li class="list-inline-item">
+              <a  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">الأخبــــار</a>
+            </li>
+            <li class="list-inline-item">
               <a href="{% url 'sessions' %}">الجلسات</a>
             </li>
           </ul>
@@ -37,4 +49,22 @@
       </div>
     </div>
   </div>
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">  أخبـــــار كلـــــم</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        نُطلق اليوم أخبار مثيرة لجميع عشاق المقاهي ومحبي الحوارات الثقافية والاجتماعية، حيث يسر موقع "كلم" الإعلان عن تخفيضات هائلة على جلسات الحوار المقامة في المقاهي المشهورة حول البلاد
+        ‎إن تنوع المواضيع المطروحة في هذه الحوارات ينبض بالإبداع والثقافة، وهو ما يجعل هذه التخفيضات فرصة لا يمكن تفويتها لجميع المهتمين، والآن بفضل تخفيضات "كلم" الكبيرة، لا نحتاج إلى الانتظار المستعصي لحضور تلك الجلسات الرائعة
+        
+      </div>
+    </div>
+  </div>
+</div>
 </footer><!-- End  Footer -->

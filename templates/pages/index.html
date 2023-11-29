@@ -1,11 +1,100 @@
 {% extends 'base.html' %}
 {% block body %}
 {% include 'slider/slider.html'%}
-{% include 'pages/about.html'%}
+{% load static %}
+<button id="scrollToTopBtn" title="التنقل لأعلى"><i class="fas fa-angle-double-up"></i></button>
+<a  class="whats-app" href="https://wa.me/596499998" target="_blank">
+  <i class="fab fa-whatsapp my-float"></i>
+</a> 
+
+<div class="about text-center py-5 bgcolor" id="about">
+  <p class="underline my-2"><span>عـــــــــن  كلــــــــــم</span></p>
+  <div class="container">
+      <div class="row">
+      <div class="col-md-6">
+          <p class="text-justify py-3">
+              <h5>استمتع بالحوار والتعلم في كَلِم - المكان المثالي لجلسات حوارية ودورات </h5>
+              عندما يتعلق الأمر بمناقشة الأفكار وتبادل المعرفة، فإن الأماكن التي تجمع بين التواصل الاجتماعي والاستمتاع بتجربة  المقهى تأتي في المقدمة. وهل سبق لك أن تخيلت الجلوس في مقهى هادئ ومريح، محاطًا بأشخاص متحمسين للحوار ومستعدين لمشاركة أفكارهم؟ يسمح لك الموقع الذي يقدم جلسات حوارية في مقهى - بتجربة فريدة ومثيرة .
+          </p>
+          <a class="nav-link button-32"  href="{%url 'about'%}">إقــــــرأ المــزيــــد</a>
+      </div>
+      <div class="col-md-6">
+          <div class="ratio ratio-16x9">
+          <div class="py-5">
+              <video width="420" height="240" poster="{% static 'img/kalam.png'%}" controls  >
+              <source src="{% static 'img/video.mp4'%}" type="video/mp4">
+              
+              </video>
+          </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<div class="why text-center py-5 bgcolor"  id="why">
+  <div class="container">
+      <div class="row">
+          <p class="underline mt-2 mb-4"><span>لمــــــــاذا كلــــــــــم</span></p>
+
+          <div class="col-md-4">
+              <div class="aboutinfo mb-2">
+                  <img class="img-fluid" src="{% static 'img/info.png'%}">
+                  <h6 class="my-3">مــن نحــن</h6>
+                  <p>حلقة الوصل ما بين المقاهي والمهتمين في الجلسات الحوارية، لمناقشة المواضيع التي تثير اهتماماتهم. </p>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="aboutinfo mb-3">
+                  <img class="img-fluid" src="{% static 'img/aim.png'%}">
+                  <h6 class="my-3">رؤيتنــا</h6>
+                  <p>أنا تصبح (كَلِم) من رواد المسؤولية الاجتماعية في مجال الثقافة والحوار في المجتمع السعودي. </p>
+              
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="aboutinfo mb-2">
+                  <img class="img-fluid" src="{% static 'img/chat.png'%}">
+                  <h6 class="my-3">رسالتنــا </h6>
+                  <p>توفير بيئة داعمة لتبادل الحوار والتعبير عن الأفكار.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="sayAbout"  id="say">
+  <p class="mb-24 underline"><span>قالـــــــــوا عنـــــــــــــا</span></p>
+  <div class="overlay"></div>
+  <div class="container">
+    <div  class="row d-flex  justify-content-end bgrow">
+      <div class="col-md-6 col-sm-6  col-lg-4 d-flex align-items-stretch">
+        <div class="card mb-2">
+        <div class="face back-face">
+          <span class="fas fa-quote-left"></span>
+          <div class="testimonial">
+            جربت تجربة رائعة مع موقع كلم، حيث يقدمون جلسات حوارية مثيرة في مقاهي مختلفة. كانت الأجواء حماسية وممتعة للغاية. إنها فرصة مثالية للقاء أشخاص جدد وتبادل الأفكار والآراء في بيئة مريحة ومحفزة. كانت المحادثات متنوعة ومثيرة، وأخذتني في رحلة مثيرة للاستكشاف والتعلم. أود أن أشكر فريق كلم على تنظيم هذه التجربة المذهلة وتوفيرها لنا. أنصح الجميع بتجربة موقع كلم والانضمام إلى جلسات الحوار الشيقة التي يقدمون.
+          </div>
+          <span class="fas fa-quote-right"></span>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-6 col-sm-6  col-lg-4  d-flex align-items-stretch">
+        <div class="card mb-2">
+        <div class="face back-face">
+          <span class="fas fa-quote-left"></span>
+          <div class="testimonial">
+             أنا متحمس جدًا لأشارك معكم قصتي. لقد كانت تلك التجربة مثيرة للغاية ومليئة بالتحديات والمفاجآت السارة. من خلال كلم، استطعت أن ألتقي بأشخاص مثيرين للاهتمام ومستمعين متفتحين للنقاش والحوار. كما استمتعت بالجلوس في مقاهي مريحة وجميلة، وتذوقت أنواعًا مختلفة من القهوة والشاي. كانت تجاربي في كلم ممتعة للغاية، حيث اكتسبت معلومات جديدة وتوسعت في آفاقي. أنصح بشدة بتجربة كلم للذين يبحثون عن تجارب .          </div>
+          <span class="fas fa-quote-right"></span>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="sesions py-5 bgcolor">
     <div class="container">
         <div class="row">
-            <p class="underline mt-2 mb-4"><span>الجلســات الحواريــة</span></p>
+            <p class="underline mt-2 mb-5"><span>الجلســات الحواريــة</span></p>
 
             {%for session  in sessions %}
             <div class="col-lg-4 col-md-3 col-sm-2 d-flex align-items-stretch">
@@ -89,7 +178,7 @@
             <div class="row d-flex justify-content-center">
               <div class="col-lg-8">
                 <h5 class="mb-3">{{testimonial.name}}</h5>
-                <p class="text-muted">
+                <p>
                   <i class="fas fa-quote-left pe-2"></i>
                   {{testimonial.message}}            
                   </p>
@@ -112,7 +201,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
               <h5 class="mb-3">{{testimonial.name}}</h5>
-              <p class="text-muted">
+              <p>
                 <i class="fas fa-quote-left pe-2"></i>
                 {{testimonial.message}}            
                 </p>

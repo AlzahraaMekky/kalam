@@ -10,20 +10,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">الرئيسية</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">الرئيسيـــــــة</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'sessions' %}">الجلسات</a>
+          <a class="nav-link" aria-current="page" href="#about">عــــن كلـــــم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#why">لمـــاذا كلـــــم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#say">قــــالــوا عنـــــــا</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'sessions' %}">الجلســـات</a>
         </li>
       
       </ul>
       <ul class="d-flex navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'signUpCoffeeOwner' %}">تسجيل كصاحب مقهى</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signUpUser' %}">تسجيل مستخدم</a>
-        </li>
+        </li> -->
                 {% if user.is_authenticated %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,7 +44,7 @@
           </div>
         </li>
       {% else %}
-      <li class="nav-item">
+      <li class="nav-item button-32">
         <a class="nav-link"  href="{%url 'login'%}">دخول</a>
       </li>
       {% endif %}

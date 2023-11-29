@@ -1,77 +1,23 @@
 {% load static %}
-<!-- ======= Intro Section ======= -->
-  <div class="intro intro-carousel swiper position-relative">
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center text-center text-lg-start">
+          <h2 data-aos="fade-up"> كلــــــــــــــــــــــم ..  </h2>
+          <h2 data-aos="fade-up"> اسمعنــــي لتفهمنــــي</h2>
 
-    <div class="swiper-wrapper">
+          <div class="d-flex my-3" data-aos="fade-up" data-aos-delay="200">
+            <a class="button-52" href="{% url 'signUpCoffeeOwner'%}">تسجيل كصاحب مقهى</a >
+            <span class="px-2"></span>
+            <a class="button-52" href="{% url 'signUpUser'%}">تسجيل مستخدم </a>
 
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(/static/img/bg.png)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                
-                    <h4 class="intro-title mb-4">
-                      <span class="color">جلســــات </span> حواريـــــة
-                    </h4>
-               
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
-      </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(/static/img/2.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">muscat, bosher
-                      <br> 78345
-                    </p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">204 </span> Rino
-                      <br> Venda Road Five
-                    </h1>
-               
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(/static/img/2.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">muscat, mabila
-                      <br> 78345
-                    </p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">204 </span> Alira
-                      <br> Roan Road One
-                    </h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | OMR 80.000</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="{%static 'img/hero-img.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div><!-- End Intro Section -->
+  </section><!-- End Hero Section -->

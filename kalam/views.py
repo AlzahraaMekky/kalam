@@ -380,3 +380,5 @@ def addTestimonial(request):
                     saveTestimonial.save()
         else:messages.error(request, 'تم التقييم من قبل')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+def aboutPage(request):
+    return render(request,"pages/about.html")
