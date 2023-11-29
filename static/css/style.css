@@ -240,7 +240,6 @@ section {
   position: fixed;
   bottom: 5px;
   right: 35px;
-  z-index: 99;
   border: none;
   outline: none;
   background-color: #b288e4;
@@ -267,7 +266,7 @@ section {
   font-size: 30px;
   box-shadow: 2px 2px 3px #999;
   z-index: 100;
-  left: 15px;
+  left: 35px;
   z-index: 99999999999999;
 }
 
