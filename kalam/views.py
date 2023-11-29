@@ -26,7 +26,7 @@ def Home(request):
         phone_no =fetchuser.phone_no
         if sessionType =="1" :type="رياضة"
         if sessionType =="2" or sessionType == "culture" :type="ثقافة"
-        if sessionType =="3" :type="سياسة"
+        if sessionType =="3" or sessionType == "policy" :type="تكنولوجيا"
         fetchCoffee=Coffee.objects.filter(user=sessionUser)
         for coffee in  fetchCoffee:
             coffeeName=coffee.name
@@ -50,7 +50,9 @@ def sessionPage(request):
     stype=""
     if request.method == "POST":
         sessionType = request.POST.get("sessiontype")
-        print("type",type)
+        if sessionType == '2':sessionType ='culture'
+        if sessionType == '3':sessionType ='policy'
+        print("sessionType4filter",sessionType)
         if sessionType != "0":
             csesions= CoffeeSesion.objects.filter(type=sessionType)
         else:
@@ -69,7 +71,7 @@ def sessionPage(request):
         phone_no =fetchuser.phone_no
         if sessionType =="1" :stype="رياضة"
         if sessionType =="2" or sessionType == "culture":stype="ثقافة"
-        if sessionType =="3" :stype="سياسة"
+        if sessionType =="3"or sessionType == "policy":stype="تكنولوجيا"
         print("sessionType",sessionType)
         fetchCoffee=Coffee.objects.filter(user=sessionUser)
         for coffee in  fetchCoffee:
@@ -244,8 +246,8 @@ def UserPage(request):
             sessionimg= fetchSesion.img
             sessiondatetime=fetchSesion.datetime
             if sessiontype =="1" : type="رياضة"
-            if sessiontype =="2":  type="ثقافة"
-            if sessiontype =="3":  type="سياسة"
+            if sessiontype =="2" or sessiontype=="culture": type="ثقافة"
+            if sessiontype =="3"or sessiontype=="policy": type="تكنولوجيا"
             fetchCoffee=Coffee.objects.filter(user=sessionuser)
             for coffee in fetchCoffee:
                 coffeeName=coffee.name
